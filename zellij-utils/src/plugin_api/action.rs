@@ -877,6 +877,14 @@ impl TryFrom<Action> for ProtobufAction {
                 name: ProtobufActionName::ToggleFocusFullscreen as i32,
                 optional_payload: None,
             }),
+            Action::HidePluginPane(pane_id) => Ok(ProtobufAction {
+                name: ProtobufActionName::HidePluginPane as i32,
+                optional_payload: Some(OptionalPayload::TogglePluginPaneFullscreen(pane_id)),
+            }),
+            Action::HideTerminalPane(pane_id) => Ok(ProtobufAction {
+                name: ProtobufActionName::HideTerminalPane as i32,
+                optional_payload: Some(OptionalPayload::ToggleTerminalPaneFullscreen(pane_id)),
+            }),
             Action::TogglePaneFrames => Ok(ProtobufAction {
                 name: ProtobufActionName::TogglePaneFrames as i32,
                 optional_payload: None,

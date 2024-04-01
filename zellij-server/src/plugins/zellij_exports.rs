@@ -145,6 +145,8 @@ fn host_run_plugin_command(env: FunctionEnvMut<ForeignFunctionEnv>) {
                         post_message_to_plugin(env, plugin_message)?
                     },
                     PluginCommand::HideSelf => hide_self(env)?,
+                    PluginCommand::HidePluginPane(pane_id) => hide_plugin_pane(env, pane_id)?,
+                    PluginCommand::HideTerminalPane(pane_id) => hide_terminal_pane(env, pane_id)?,
                     PluginCommand::ShowSelf(should_float_if_hidden) => {
                         show_self(env, should_float_if_hidden)
                     },
@@ -812,6 +814,36 @@ fn hide_self(env: &ForeignFunctionEnv) -> Result<()> {
             env.plugin_env.client_id,
         ))
         .with_context(|| format!("failed to hide self"))
+}
+
+fn hide_plugin_pane(env: &ForeignFunctionEnv, pane_id: u32) -> Result<()> {
+    env.plugin_env
+        .senders
+        .send_to_screen(ScreenInstruction::SuppressPane(
+            PaneId::Plugin(pane_id),
+            env.plugin_env.client_id,
+        ))
+        .with_context(|| format!("failed to hide plugin pane"))
+}
+
+fn hide_terminal_pane(env: &ForeignFunctionEnv, pane_id: u32) -> Result<()> {
+    env.plugin_env
+        .senders
+        .send_to_screen(ScreenInstruction::SuppressPane(
+            PaneId::Terminal(pane_id),
+            env.plugin_env.client_id,
+        ))
+        .with_context(|| format!("failed to hide terminal pane"))
+}
+
+fn hide_terminal_pane(env: &ForeignFunctionEnv, pane_id: u32) -> Result<()> {
+    env.plugin_env
+        .senders
+        .send_to_screen(ScreenInstruction::SuppressPane(
+            PaneId::Terminal(pane_id),
+            env.plugin_env.client_id,
+        ))
+        .with_context(|| format!("failed to hide terminal pane"))
 }
 
 fn show_self(env: &ForeignFunctionEnv, should_float_if_hidden: bool) {

@@ -116,6 +116,10 @@ pub mod plugin_command {
         KillSessionsPayload(super::KillSessionsPayload),
         #[prost(string, tag = "61")]
         ScanHostFolderPayload(::prost::alloc::string::String),
+        #[prost(uint32, tag = "62")]
+        HidePluginPane(u32),
+        #[prost(uint32, tag = "63")]
+        HideTerminalPane(u32),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -422,6 +426,8 @@ pub enum CommandName {
     WatchFilesystem = 83,
     DumpSessionLayout = 84,
     CloseSelf = 85,
+    HidePluginPane = 86,
+    HideTerminalPane = 87,
 }
 impl CommandName {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -516,6 +522,8 @@ impl CommandName {
             CommandName::WatchFilesystem => "WatchFilesystem",
             CommandName::DumpSessionLayout => "DumpSessionLayout",
             CommandName::CloseSelf => "CloseSelf",
+            CommandName::HidePluginPane => "HidePluginPane",
+            CommandName::HideTerminalPane => "HideTerminalPane",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.

@@ -344,6 +344,18 @@ impl TryFrom<ProtobufPluginCommand> for PluginCommand {
                 }
                 Ok(PluginCommand::HideSelf)
             },
+            Some(CommandName::HidePluginPane) => match protobuf_plugin_command.payload {
+                Some(Payload::HidePluginPane(pane_id)) => {
+                    Ok(PluginCommand::HidePluginPane(pane_id))
+                },
+                _ => Err("Mismatched payload for HidePluginPane"),
+            },
+            Some(CommandName::HideTerminalPane) => match protobuf_plugin_command.payload {
+                Some(Payload::HideTerminalPane(pane_id)) => {
+                    Ok(PluginCommand::HideTerminalPane(pane_id))
+                },
+                _ => Err("Mismatched payload for HideTerminalPane"),
+            },
             Some(CommandName::ShowSelf) => match protobuf_plugin_command.payload {
                 Some(Payload::ShowSelfPayload(should_float_if_hidden)) => {
                     Ok(PluginCommand::ShowSelf(should_float_if_hidden))
@@ -993,6 +1005,14 @@ impl TryFrom<PluginCommand> for ProtobufPluginCommand {
             PluginCommand::HideSelf => Ok(ProtobufPluginCommand {
                 name: CommandName::HideSelf as i32,
                 payload: None,
+            }),
+            PluginCommand::HidePluginPane(pane_id) => Ok(ProtobufPluginCommand {
+                name: CommandName::HidePluginPane as i32,
+                payload: Some(Payload::HidePluginPane(pane_id)),
+            }),
+            PluginCommand::HideTerminalPane(pane_id) => Ok(ProtobufPluginCommand {
+                name: CommandName::HideTerminalPane as i32,
+                payload: Some(Payload::HideTerminalPane(pane_id)),
             }),
             PluginCommand::ShowSelf(should_float_if_hidden) => Ok(ProtobufPluginCommand {
                 name: CommandName::ShowSelf as i32,

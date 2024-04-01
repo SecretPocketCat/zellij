@@ -455,6 +455,8 @@ pub enum ActionName {
     CliPipe = 82,
     MoveTab = 83,
     KeybindPipe = 84,
+    HidePluginPane = 87,
+    HideTerminalPane = 88,
 }
 impl ActionName {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -548,6 +550,8 @@ impl ActionName {
             ActionName::CliPipe => "CliPipe",
             ActionName::MoveTab => "MoveTab",
             ActionName::KeybindPipe => "KeybindPipe",
+            ActionName::HidePluginPane => "HidePluginPane",
+            ActionName::HideTerminalPane => "HideTerminalPane",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.

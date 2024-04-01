@@ -1380,4 +1380,6 @@ pub enum PluginCommand {
     WatchFilesystem,
     DumpSessionLayout,
     CloseSelf,
+    HidePluginPane(u32),
+    HideTerminalPane(u32),
 }
