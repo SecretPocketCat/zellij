@@ -297,8 +297,6 @@ pub enum Action {
         cwd: Option<PathBuf>,
         pane_title: Option<String>,
     },
-    HidePluginPane(u32),
-    HideTerminalPane(u32),
 }
 
 impl Action {

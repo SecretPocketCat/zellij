@@ -836,16 +836,6 @@ fn hide_terminal_pane(env: &ForeignFunctionEnv, pane_id: u32) -> Result<()> {
         .with_context(|| format!("failed to hide terminal pane"))
 }
 
-fn hide_terminal_pane(env: &ForeignFunctionEnv, pane_id: u32) -> Result<()> {
-    env.plugin_env
-        .senders
-        .send_to_screen(ScreenInstruction::SuppressPane(
-            PaneId::Terminal(pane_id),
-            env.plugin_env.client_id,
-        ))
-        .with_context(|| format!("failed to hide terminal pane"))
-}
-
 fn show_self(env: &ForeignFunctionEnv, should_float_if_hidden: bool) {
     let action = Action::FocusPluginPaneWithId(env.plugin_env.plugin_id, should_float_if_hidden);
     let error_msg = || format!("Failed to show self for plugin");

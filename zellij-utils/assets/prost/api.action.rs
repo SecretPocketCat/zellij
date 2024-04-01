@@ -108,6 +108,10 @@ pub mod action {
         MessagePayload(super::CliPipePayload),
         #[prost(enumeration = "super::MoveTabDirection", tag = "48")]
         MoveTabPayload(i32),
+        #[prost(uint32, tag = "49")]
+        HidePluginPane(u32),
+        #[prost(uint32, tag = "50")]
+        HideTerminalPane(u32),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
