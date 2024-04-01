@@ -1300,6 +1300,8 @@ pub enum PluginCommand {
     PostMessageTo(PluginMessage),
     PostMessageToPlugin(PluginMessage),
     HideSelf,
+    HidePluginPane(u32),
+    HideTerminalPane(u32),
     ShowSelf(bool), // bool - should float if hidden
     SwitchToMode(InputMode),
     NewTabsWithLayout(String), // raw kdl layout
@@ -1380,6 +1382,4 @@ pub enum PluginCommand {
     WatchFilesystem,
     DumpSessionLayout,
     CloseSelf,
-    HidePluginPane(u32),
-    HideTerminalPane(u32),
 }

@@ -108,10 +108,6 @@ pub mod action {
         MessagePayload(super::CliPipePayload),
         #[prost(enumeration = "super::MoveTabDirection", tag = "48")]
         MoveTabPayload(i32),
-        #[prost(uint32, tag = "49")]
-        HidePluginPane(u32),
-        #[prost(uint32, tag = "50")]
-        HideTerminalPane(u32),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -459,8 +455,6 @@ pub enum ActionName {
     CliPipe = 82,
     MoveTab = 83,
     KeybindPipe = 84,
-    HidePluginPane = 87,
-    HideTerminalPane = 88,
 }
 impl ActionName {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -554,8 +548,6 @@ impl ActionName {
             ActionName::CliPipe => "CliPipe",
             ActionName::MoveTab => "MoveTab",
             ActionName::KeybindPipe => "KeybindPipe",
-            ActionName::HidePluginPane => "HidePluginPane",
-            ActionName::HideTerminalPane => "HideTerminalPane",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
