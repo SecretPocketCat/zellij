@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+
+## [0.40.0] - 2024-04-16
 * feat(plugins): skip plugin cache flag when loading plugins (https://github.com/zellij-org/zellij/pull/2971)
 * fix(grid): recover from various errors (https://github.com/zellij-org/zellij/pull/2972)
 * fix(grid): flaky scroll with scroll region (https://github.com/zellij-org/zellij/pull/2935)
@@ -35,6 +37,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 * fix(plugins): properly serialize remote urls (https://github.com/zellij-org/zellij/pull/3224)
 * feat(plugins): add close_self API to allow plugins to close their own instance (https://github.com/zellij-org/zellij/pull/3228)
 * feat(plugins): allow plugins to specify `zellij:OWN_URL` as a pipe destination (https://github.com/zellij-org/zellij/pull/3232)
+* feat(cli): Add `move-tab` action (https://github.com/zellij-org/zellij/pull/3244)
+* feat(plugins): add serialization methods to UI components (https://github.com/zellij-org/zellij/pull/3193)
+* fix(layouts): recover from resurrection crash and fix swap layouts not being picked up by new-tab keybinding (https://github.com/zellij-org/zellij/pull/3249)
+* feat(cli): allow starting a session in the background (detached) (https://github.com/zellij-org/zellij/pull/3257 and https://github.com/zellij-org/zellij/pull/3265)
+* feat(config): allow disabling writing of session metadata to disk (https://github.com/zellij-org/zellij/pull/3258)
+* fix(compact-bar): properly pad mode indicator (https://github.com/zellij-org/zellij/pull/3260)
+* fix(resurrection): do not list empty sessions and fix search ux issue in session-manager (https://github.com/zellij-org/zellij/pull/3264)
 
 ## [0.39.2] - 2023-11-29
 * fix(cli): typo in cli help (https://github.com/zellij-org/zellij/pull/2906)
